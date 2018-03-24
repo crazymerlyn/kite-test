@@ -1,1 +1,8 @@
+{% if access_token %} 
+{% for order in orders %}
+<h3> {{ order.name }} </h3>
+<p> {{ order }} </p>
+{% endfor %}
+{% else %}
 <a href="{% url 'login' %}">Login</a>
+{% endif %}
