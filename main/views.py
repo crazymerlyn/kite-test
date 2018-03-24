@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
 from kiteconnect import KiteConnect
 import os
 
@@ -7,6 +8,7 @@ api_secret = os.environ['API_SECRET']
 
 # Create your views here.
 
+@login_required
 def index(request):
     ctx = {}
     ctx['access_token'] = request.session.get('access_token', '')
