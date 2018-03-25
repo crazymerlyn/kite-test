@@ -9,9 +9,11 @@
     <h1>Investosure</h1>
     {% if user.is_authenticated %}
       Hi {{ user.username }}!
+      <a href="{% url 'profile' %}">profile</a>
       <a href="{% url 'logout' %}">logout</a>
     {% else %}
       <a href="{% url 'login' %}">login</a>
+      <a href="{% url 'signup' %}">signup</a>
     {% endif %}
   </header>
   <hr>

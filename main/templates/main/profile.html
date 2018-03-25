@@ -1,0 +1,18 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+{% if user.profile.is_agent %}
+Your are an agent! <br>
+{% if user.investors %}
+Investors you have referred:
+{% endif %}
+<ol>
+{% for investor in user.investors.all %}
+<li>{{ investor.user }}</li>
+{% endfor %}
+</ol>
+<a href={% url 'add_investor' %}>Add Investor</a>
+{% else %}
+You are an investor
+{% endif %}
+{% endblock %}
